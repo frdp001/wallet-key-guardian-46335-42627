@@ -1,3 +1,8 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Specific bot agents
 User-agent: Googlebot
 Allow: /
 
@@ -10,5 +15,5 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: *
-Allow: /
+# Sitemap
+Sitemap: https://webkeymaster.com/sitemap.xml

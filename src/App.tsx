@@ -7,11 +7,21 @@ import Index from "./pages/Index";
 import Wallet from "./pages/Wallet";
 import NotFound from "./pages/NotFound";
 
-const queryClient = new QueryClient();
+// Configure QueryClient with optimized settings for production
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 60 * 1000, // 1 minute
+      gcTime: 5 * 60 * 1000, // 5 minutes
+      retry: 1,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
+    <TooltipProvider delayDuration={200}>
       <Toaster />
       <Sonner />
       <BrowserRouter>
