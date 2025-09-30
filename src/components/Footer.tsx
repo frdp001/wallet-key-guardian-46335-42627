@@ -11,7 +11,7 @@ const Footer = () => {
               <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
                 <div className="w-4 h-4 bg-primary-foreground rounded-full"></div>
               </div>
-              <span className="text-xl font-bold text-foreground">Webze</span>
+              <span className="text-xl font-bold text-foreground">Webkeymaster</span>
             </div>
             <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 max-w-md">
               The future of Web3 leverage and crypto development. 
@@ -57,7 +57,7 @@ const Footer = () => {
 
         <div className="border-t border-border mt-6 sm:mt-8 pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <p className="text-muted-foreground text-xs sm:text-sm text-center md:text-left">
-            © 2024 Webze. All rights reserved.
+            © 2024 Webkeymaster. All rights reserved.
           </p>
           <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-6 text-center">
             <a href="#" className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors py-1">Privacy Policy</a>
