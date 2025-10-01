@@ -1,8 +1,6 @@
 import { Github, Twitter, Linkedin, Mail } from "lucide-react";
-
 const Footer = () => {
-  return (
-    <footer className="bg-card/50 border-t border-border py-8 sm:py-12">
+  return <footer className="bg-card/50 border-t border-border py-8 sm:py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {/* Brand */}
@@ -11,7 +9,7 @@ const Footer = () => {
               <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
                 <div className="w-4 h-4 bg-primary-foreground rounded-full"></div>
               </div>
-              <span className="text-xl font-bold text-foreground">Webkeymaster</span>
+              <span className="text-xl font-bold text-foreground">Web3shieldvault</span>
             </div>
             <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 max-w-md">
               The future of Web3 leverage and crypto development. 
@@ -65,8 +63,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
